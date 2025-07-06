@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { MapPin, Users, Heart, MessageCircle, Twitter, Instagram, Mail } from "lucide-react"
+import { Users, Heart, MessageCircle, Twitter, Instagram, Mail } from "lucide-react"
 
 export default function ResortCommunityPage() {
   return (
@@ -16,15 +16,15 @@ export default function ResortCommunityPage() {
               <div className="w-8 h-8 bg-gradient-to-r from-sky-400 to-teal-400 rounded-full flex items-center justify-center">
                 <Heart className="w-4 h-4 text-white" />
               </div>
-              <span className="text-xl font-bold text-sky-800">島バイト仲間</span>
+              <span className="text-xl font-bold text-sky-800">リゾートバイトコミュニティ</span>
             </div>
             <nav className="hidden md:flex space-x-6">
               <Link href="#about" className="text-sky-700 hover:text-sky-900 transition-colors">
                 コミュニティについて
               </Link>
-              <Link href="#regions" className="text-sky-700 hover:text-sky-900 transition-colors">
+              {/* <Link href="#regions" className="text-sky-700 hover:text-sky-900 transition-colors">
                 地域別チャンネル
-              </Link>
+              </Link> */}
               <Link href="#stories" className="text-sky-700 hover:text-sky-900 transition-colors">
                 体験談
               </Link>
@@ -40,7 +40,7 @@ export default function ResortCommunityPage() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/placeholder.svg?height=800&width=1200"
+            src="/beach.jpg?height=800&width=1200"
             alt="美しい南の島のビーチ"
             fill
             className="object-cover opacity-20"
@@ -50,22 +50,24 @@ export default function ResortCommunityPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold text-sky-900 mb-6 leading-tight">
-              島バイトで、
+              リゾートバイトで、
               <br />
               <span className="text-teal-600">ひとりじゃない</span>
             </h1>
             <p className="text-xl md:text-2xl text-sky-800 mb-8 leading-relaxed">
-              リゾートバイトの孤独感を分かち合い、
+              リゾートバイト先で、
               <br />
-              全国の仲間とつながるコミュニティ
+              仲間とつながるコミュニティ
             </p>
+            <Link href="https://discord.gg/UZTmVFnEdS">
             <Button
               size="lg"
               className="bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
-              今すぐDiscordに参加する
+              Discord グループに参加する
             </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -76,7 +78,7 @@ export default function ResortCommunityPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-sky-900 mb-4">このコミュニティについて</h2>
             <p className="text-lg text-sky-700 max-w-2xl mx-auto">
-              リゾートバイトの孤独感を解消し、全国の仲間とつながる場所です
+              リゾートバイトでの孤独感を解消し、仲間とつながる場所です
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -118,11 +120,10 @@ export default function ResortCommunityPage() {
       </section>
 
       {/* Regional Channels */}
-      <section id="regions" className="py-16">
+      {/* <section id="regions" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-sky-900 mb-4">地域別チャンネル</h2>
-            <p className="text-lg text-sky-700">全国各地のリゾートバイト情報を地域別に共有</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
@@ -131,7 +132,7 @@ export default function ResortCommunityPage() {
                 description: "スキー場やニセコ、富良野などの情報交換",
                 color: "from-blue-400 to-cyan-400",
               },
-              { region: "東北", description: "温泉地や蔵王、安比高原での体験談", color: "from-cyan-400 to-teal-400" },
+              { region: "北海道・東北", description: "温泉地や蔵王、安比高原での体験談", color: "from-cyan-400 to-teal-400" },
               { region: "関東", description: "軽井沢や箱根、伊豆での仲間探し", color: "from-teal-400 to-emerald-400" },
               { region: "中部", description: "白馬や志賀高原、伊豆半島の情報", color: "from-emerald-400 to-green-400" },
               { region: "関西", description: "有馬温泉や南紀白浜での体験共有", color: "from-green-400 to-lime-400" },
@@ -140,8 +141,7 @@ export default function ResortCommunityPage() {
                 description: "瀬戸内海や道後温泉の仲間たち",
                 color: "from-lime-400 to-yellow-400",
               },
-              { region: "九州", description: "別府や湯布院、阿蘇での出会い", color: "from-yellow-400 to-orange-400" },
-              { region: "沖縄", description: "石垣島や宮古島、本島での島生活", color: "from-orange-400 to-red-400" },
+              { region: "九州・沖縄", description: "別府や湯布院、阿蘇での出会い", color: "from-yellow-400 to-orange-400" },
             ].map((item, index) => (
               <Card
                 key={index}
@@ -162,10 +162,10 @@ export default function ResortCommunityPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stories Section */}
-      <section id="stories" className="py-16 bg-white/50">
+      <section id="stories" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-sky-900 mb-4">みんなの体験談</h2>
@@ -186,7 +186,7 @@ export default function ResortCommunityPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sky-800 leading-relaxed">
-                  「屋久島で3ヶ月間、誰とも深く話せずに孤独でした。でもこのDiscordサーバーに参加してから、同じような経験をした人たちと出会えて本当に救われました。今では島バイト仲間と定期的にオンラインで話しています！」
+                  「屋久島で3ヶ月間、誰とも深く話せずに孤独でした。でもこのDiscordサーバーに参加してから、同じような経験をした人たちと出会えて本当に救われました。今ではリゾートバイトコミュニティと定期的にオンラインで話しています！」
                 </p>
               </CardContent>
             </Card>
@@ -213,7 +213,7 @@ export default function ResortCommunityPage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16">
+      <section id="faq" className="py-16 bg-white/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-sky-900 mb-4">よくある質問</h2>
@@ -276,7 +276,7 @@ export default function ResortCommunityPage() {
             className="bg-white text-sky-600 hover:bg-sky-50 px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <MessageCircle className="w-5 h-5 mr-2" />
-            Discordに参加する
+            Discord グループに参加する
           </Button>
         </div>
       </section>
@@ -290,9 +290,9 @@ export default function ResortCommunityPage() {
                 <div className="w-8 h-8 bg-gradient-to-r from-sky-400 to-teal-400 rounded-full flex items-center justify-center">
                   <Heart className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xl font-bold">島バイト仲間</span>
+                <span className="text-xl font-bold">リゾートバイトコミュニティ</span>
               </div>
-              <p className="text-sky-200">リゾートバイトの孤独感を解消し、全国の仲間とつながるコミュニティです。</p>
+              <p className="text-sky-200">リゾートバイト先で、仲間とつながるコミュニティ</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">お問い合わせ</h3>
@@ -316,7 +316,7 @@ export default function ResortCommunityPage() {
             </div>
           </div>
           <div className="border-t border-sky-800 mt-8 pt-8 text-center">
-            <p className="text-sky-200">© 2024 島バイト仲間. All rights reserved.</p>
+            <p className="text-sky-200">© 2025 リゾートバイトコミュニティ. All rights reserved.</p>
           </div>
         </div>
       </footer>
